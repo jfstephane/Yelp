@@ -15,7 +15,9 @@ import CoreLocation
 class DetailViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
+    //@IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapView: MKMapView!
+    
     var locationManager : CLLocationManager!
     
     var business: Business!
