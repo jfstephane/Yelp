@@ -12,7 +12,7 @@ import CoreLocation
 
 
 
-class DetailViewController: UIViewController, CLLocationManagerDelegate {
+class DetailViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var nameLabel: UILabel!
     //@IBOutlet weak var mapView: MKMapView!

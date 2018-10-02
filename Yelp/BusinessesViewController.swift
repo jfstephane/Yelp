@@ -89,11 +89,11 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    /*
+    
     // Searchbar
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        PKHUD.sharedHUD.contentView = PKHUDProgressView()
-        PKHUD.sharedHUD.show()
+        //PKHUD.sharedHUD.contentView = PKHUDProgressView()
+        //PKHUD.sharedHUD.show()
         
         Business.searchWithTerm(term: searchBar.text!, completion: { (businesses: [Business]?, error: Error?) -> Void in
             self.businesses = businesses
@@ -101,7 +101,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
             searchBar.setShowsCancelButton(false, animated: true)
             searchBar.endEditing(true)
             self.tableView.resignFirstResponder()
-            PKHUD.sharedHUD.hide()
+            //PKHUD.sharedHUD.hide()
         }
         )
     }
@@ -117,7 +117,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.endEditing(true)
         tableView.resignFirstResponder()
-    }*/
+    }
     
     /*
      // MARK: - Navigation
