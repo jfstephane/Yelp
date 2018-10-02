@@ -13,6 +13,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     var businesses: [Business]!
     var searchBar: UISearchBar!
+    var isMoreDataLoading = false
+    //var loadingMoreView:InfiniteScrollActivityView?
     
     @IBOutlet weak var tableView: UITableView!
     
