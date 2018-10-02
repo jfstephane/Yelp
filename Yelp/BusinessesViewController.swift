@@ -17,6 +17,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     //var loadingMoreView:InfiniteScrollActivityView?
     
     @IBOutlet weak var tableView: UITableView!
+    //@IBOutlet weak var searchView: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         searchBar.returnKeyType = .search
         searchBar.enablesReturnKeyAutomatically = false
         searchBar.sizeToFit()
-        //navigationBar.titleView = searchBar
+        navigationItem.titleView = searchBar
         
         tableView.delegate = self;
         tableView.dataSource = self;
