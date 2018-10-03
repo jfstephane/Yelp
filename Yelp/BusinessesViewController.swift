@@ -86,6 +86,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         if let indexPath = tableView.indexPath(for: cell) {
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.business = self.businesses[indexPath.row]
+            
         }
     }
     
