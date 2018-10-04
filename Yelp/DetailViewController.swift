@@ -17,6 +17,10 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet weak var nameLabel: UILabel!
     //@IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var ratingView: UIImageView!
+    @IBOutlet weak var adressLabel: UILabel!
+    @IBOutlet weak var categorieLabel: UILabel!
     
     var locationManager : CLLocationManager!
     
@@ -28,6 +32,11 @@ class DetailViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
 
         // Do any additional setup after loading the view.
                 nameLabel.text = business.name
+        photoView.setImageWith(business.imageURL!);
+        categorieLabel.text = business.categories
+        adressLabel.text = business.address
+        //reviewLabel.text = "\(business.reviewCount!) Reviews";
+        ratingView.image = (business.ratingImage)
         
         
         //Map

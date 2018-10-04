@@ -9,12 +9,14 @@
 import UIKit
 //import PKHUD
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     var businesses: [Business]!
     var searchBar: UISearchBar!
     var isMoreDataLoading = false
-    //var loadingMoreView:InfiniteScrollActivityView?
+    var loadingMoreView:InfiniteScrollActivityView?
+    var limit: Int = 20
+    var offset: Int = 20
     
     @IBOutlet weak var tableView: UITableView!
     //@IBOutlet weak var searchView: UISearchBar!
@@ -34,6 +36,18 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         //tableView.rowHeight = 100;
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        searchBar.delegate = self
+        
+        // Set up Infinite Scroll loading indicator
+        let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        tableView.contentInset = insets
         
         Business.searchWithTerm(term: "Restaurants", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
@@ -110,6 +124,11 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
+    
+    
+    
+  
+    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text?.count == 0 {
